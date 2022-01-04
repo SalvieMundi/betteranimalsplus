@@ -6,7 +6,7 @@ import dev.itsmeow.betteranimalsplus.BetterAnimalsPlusMod;
 import dev.itsmeow.betteranimalsplus.Ref;
 import dev.itsmeow.betteranimalsplus.client.model.block.head.*;
 import dev.itsmeow.betteranimalsplus.common.entity.*;
-import dev.itsmeow.betteranimalsplus.common.entity.projectile.*;
+//import dev.itsmeow.betteranimalsplus.common.entity.projectile.*;
 import dev.itsmeow.betteranimalsplus.common.entity.util.EntityTypeContainerBAPTameable;
 import dev.itsmeow.betteranimalsplus.common.entity.util.abstracts.EntityBAPSquid;
 import dev.itsmeow.betteranimalsplus.common.entity.util.abstracts.EntityCrabLikeBase;
@@ -204,7 +204,7 @@ public class ModEntities {
             .defaultPlacement(EntityWalrus::canSpawn)
             .egg(0x854c03, 0x42300f)
             .size(3F, 1.25F)
-            .biomes(c -> c.extra(Biomes.FROZEN_OCEAN, Biomes.DEEP_FROZEN_OCEAN, Biomes.SNOWY_BEACH, Biomes.STONY_SHORE)));
+            .biomes(c -> c.extra(Biomes.FROZEN_OCEAN, Biomes.DEEP_FROZEN_OCEAN, Biomes.SNOWY_BEACH)));
     public static final EntityTypeContainer<EntityColossalSquid> SQUID_COLOSSAL = H.add(EntityColossalSquid.class, EntityColossalSquid::new, "squid_colossal", () -> Mob.createMobAttributes()
             .add(Attributes.MAX_HEALTH, 30D)
             .add(Attributes.MOVEMENT_SPEED, 1D)
@@ -386,7 +386,7 @@ public class ModEntities {
             .size(2.25F, 3F)
             .biomes(c -> c
                     .extra(BiomeTypes.SWAMP)
-                    .extra(Biomes.OLD_GROWTH_SPRUCE_TAIGA, Biomes.OLD_GROWTH_PINE_TAIGA))
+                    .extra(Biomes.GIANT_SPRUCE_TAIGA, Biomes.GIANT_TREE_TAIGA))
             .variants(4)
             .head().itemGroup(G).mapToNames().setModel(() -> ModelMooseHead::new, "moose_head").done());
     public static final EntityTypeContainerContainable<EntityFreshwaterEel, ItemModFishBucket<EntityFreshwaterEel>> EEL_FRESHWATER = H.addContainableB(EntityFreshwaterEel.class, EntityFreshwaterEel::new, "eel_freshwater", () -> Mob.createMobAttributes()
@@ -491,12 +491,12 @@ public class ModEntities {
         return H.ENTITIES;
     }
 
-    public static final RegistrySupplier<EntityType<EntityBadgerDirt>> PROJECTILE_BADGER_DIRT = projectile(EntityBadgerDirt::new, "badgerdirt", 1.2F, 1.2F);
-    public static final RegistrySupplier<EntityType<EntityGoldenGooseEgg>> PROJECTILE_GOLDEN_GOOSE_EGG = projectile(EntityGoldenGooseEgg::new, "golden_goose_egg", 0.25F, 0.25F);
-    public static final RegistrySupplier<EntityType<EntityGooseEgg>> PROJECTILE_GOOSE_EGG = projectile(EntityGooseEgg::new, "goose_egg", 0.25F, 0.25F);
-    public static final RegistrySupplier<EntityType<EntityPheasantEgg>> PROJECTILE_PHEASANT_EGG = projectile(EntityPheasantEgg::new, "pheasant_egg", 0.25F, 0.25F);
-    public static final RegistrySupplier<EntityType<EntityTurkeyEgg>> PROJECTILE_TURKEY_EGG = projectile(EntityTurkeyEgg::new, "turkey_egg", 0.25F, 0.25F);
-    public static final RegistrySupplier<EntityType<EntityTarantulaHair>> PROJECTILE_TARANTULA_HAIR = projectile(EntityTarantulaHair::new, "tarantulahair", 0.5F, 0.5F);
+//    public static final RegistrySupplier<EntityType<EntityBadgerDirt>> PROJECTILE_BADGER_DIRT = projectile(EntityBadgerDirt::new, "badgerdirt", 1.2F, 1.2F);
+//    public static final RegistrySupplier<EntityType<EntityGoldenGooseEgg>> PROJECTILE_GOLDEN_GOOSE_EGG = projectile(EntityGoldenGooseEgg::new, "golden_goose_egg", 0.25F, 0.25F);
+//    public static final RegistrySupplier<EntityType<EntityGooseEgg>> PROJECTILE_GOOSE_EGG = projectile(EntityGooseEgg::new, "goose_egg", 0.25F, 0.25F);
+//    public static final RegistrySupplier<EntityType<EntityPheasantEgg>> PROJECTILE_PHEASANT_EGG = projectile(EntityPheasantEgg::new, "pheasant_egg", 0.25F, 0.25F);
+//    public static final RegistrySupplier<EntityType<EntityTurkeyEgg>> PROJECTILE_TURKEY_EGG = projectile(EntityTurkeyEgg::new, "turkey_egg", 0.25F, 0.25F);
+//    public static final RegistrySupplier<EntityType<EntityTarantulaHair>> PROJECTILE_TARANTULA_HAIR = projectile(EntityTarantulaHair::new, "tarantulahair", 0.5F, 0.5F);
 
     public static void init() {
         H.init();

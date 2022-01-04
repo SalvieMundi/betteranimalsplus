@@ -44,7 +44,7 @@ public class BetterAnimalsPlusMod {
         ModEntities.init();
         ModBlocks.init();
         ModItems.init();
-        ModBlockEntities.init();
+        //ModBlockEntities.init();
         ModTriggers.register();
         LOGGER.info("Injecting super coyotes...");
         HANDLER.register(ClientConfigurationPacket.class, ClientConfigurationPacket::encode, ClientConfigurationPacket::decode, ClientConfigurationPacket.Handler::handle);
@@ -70,7 +70,7 @@ public class BetterAnimalsPlusMod {
     }
 
     public static void init(Consumer<Runnable> enqueue) {
-        ModWorldGen.init(enqueue);
+        //ModWorldGen.init(enqueue);
         LOGGER.info("Overspawning lammergeiers...");
     }
 

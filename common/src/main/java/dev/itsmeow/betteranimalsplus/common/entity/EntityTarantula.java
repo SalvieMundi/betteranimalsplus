@@ -1,6 +1,6 @@
 package dev.itsmeow.betteranimalsplus.common.entity;
 
-import dev.itsmeow.betteranimalsplus.common.entity.projectile.EntityTarantulaHair;
+//import dev.itsmeow.betteranimalsplus.common.entity.projectile.EntityTarantulaHair;
 import dev.itsmeow.betteranimalsplus.init.ModEntities;
 import dev.itsmeow.imdlib.entity.EntityTypeContainer;
 import dev.itsmeow.imdlib.entity.interfaces.ISelectiveVariantTypes;
@@ -36,9 +36,9 @@ public class EntityTarantula extends Spider implements RangedAttackMob, ISelecti
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        RangedAttackGoal atkrange = new RangedAttackGoal(this, 1.0D, 160, 15.0F);
-        atkrange.setFlags(EnumSet.of(Goal.Flag.TARGET)); // Allow it to run at the same time as melee attacks
-        this.goalSelector.addGoal(2, atkrange);
+//        RangedAttackGoal atkrange = new RangedAttackGoal(this, 1.0D, 160, 15.0F);
+//        atkrange.setFlags(EnumSet.of(Goal.Flag.TARGET)); // Allow it to run at the same time as melee attacks
+//        this.goalSelector.addGoal(2, atkrange);
         this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.4F));
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 0.8D, false));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8D));
@@ -50,17 +50,17 @@ public class EntityTarantula extends Spider implements RangedAttackMob, ISelecti
 
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        EntityTarantulaHair entityhair = new EntityTarantulaHair(ModEntities.PROJECTILE_TARANTULA_HAIR.get(), this.level, this);
-        entityhair.moveTo(this.getX(), this.getY() + 1, this.getZ(), 0, 0);
-        double d0 = target.getY() + target.getEyeHeight() - 1.100000023841858D;
-        double d1 = target.getX() - this.getX();
-        double d2 = d0 - entityhair.getY();
-        double d3 = target.getZ() - this.getZ();
-        double f = Math.sqrt(d1 * d1 + d3 * d3) * 0.2F;
-        entityhair.shoot(d1, d2 + f, d3, 1.5F, 8.0F);
-        this.playSound(SoundEvents.WOOL_PLACE, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
-        this.level.addFreshEntity(entityhair);
-
+//        EntityTarantulaHair entityhair = new EntityTarantulaHair(ModEntities.PROJECTILE_TARANTULA_HAIR.get(), this.level, this);
+//        entityhair.moveTo(this.getX(), this.getY() + 1, this.getZ(), 0, 0);
+//        double d0 = target.getY() + target.getEyeHeight() - 1.100000023841858D;
+//        double d1 = target.getX() - this.getX();
+//        double d2 = d0 - entityhair.getY();
+//        double d3 = target.getZ() - this.getZ();
+//        double f = Math.sqrt(d1 * d1 + d3 * d3) * 0.2F;
+//        entityhair.shoot(d1, d2 + f, d3, 1.5F, 8.0F);
+//        this.playSound(SoundEvents.WOOL_PLACE, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
+//        if (!this.level.isClientSide) this.level.addFreshEntity(entityhair);
+//
     }
 
     @Override

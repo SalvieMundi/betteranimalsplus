@@ -478,9 +478,9 @@ public class EntityReindeer extends Animal implements PlayerRideableJumping, IVa
         }
 
         super.aiStep();
-        if(level.isClientSide() && getContainer().getCustomConfigurationClient().getBoolean(CREATE_SNOW_KEY) && random.nextInt(10) == 0) {
-            this.level.addParticle(ParticleTypes.POOF, this.getX() + this.random.nextInt(4) - 2F, this.getY() + this.random.nextInt(4), this.getZ() + this.random.nextInt(4) - 2F, 0F, -0.2F, 0F);
-        }
+//        if(level.isClientSide() && getContainer().getCustomConfigurationClient().getBoolean(CREATE_SNOW_KEY) && random.nextInt(10) == 0) {
+//            this.level.addParticle(ParticleTypes.POOF, this.getX() + this.random.nextInt(4) - 2F, this.getY() + this.random.nextInt(4), this.getZ() + this.random.nextInt(4) - 2F, 0F, -0.2F, 0F);
+//        }
         if(!this.level.isClientSide) {
             if (this.random.nextInt(900) == 0 && this.deathTime == 0) {
                 this.heal(1.0F);

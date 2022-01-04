@@ -5,10 +5,10 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import dev.itsmeow.betteranimalsplus.BetterAnimalsPlusMod;
 import dev.itsmeow.betteranimalsplus.Ref;
-import dev.itsmeow.betteranimalsplus.common.entity.projectile.EntityGoldenGooseEgg;
-import dev.itsmeow.betteranimalsplus.common.entity.projectile.EntityGooseEgg;
-import dev.itsmeow.betteranimalsplus.common.entity.projectile.EntityPheasantEgg;
-import dev.itsmeow.betteranimalsplus.common.entity.projectile.EntityTurkeyEgg;
+//import dev.itsmeow.betteranimalsplus.common.entity.projectile.EntityGoldenGooseEgg;
+//import dev.itsmeow.betteranimalsplus.common.entity.projectile.EntityGooseEgg;
+//import dev.itsmeow.betteranimalsplus.common.entity.projectile.EntityPheasantEgg;
+//import dev.itsmeow.betteranimalsplus.common.entity.projectile.EntityTurkeyEgg;
 import dev.itsmeow.betteranimalsplus.common.item.*;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -80,16 +80,16 @@ public class ModItems {
     public static RegistrySupplier<ItemBearCape> BEAR_CAPE_BLACK = modelArmor(varArg("bear_cape_", "black", s -> new ItemBearCape(s, BEAR_SKIN_BLACK.get())));
     public static RegistrySupplier<ItemBearCape> BEAR_CAPE_KERMODE = modelArmor(varArg("bear_cape_", "kermode", s -> new ItemBearCape(s, BEAR_SKIN_KERMODE.get())));
 
-    public static final RegistrySupplier<ItemThrowableCustomEgg<EntityPheasantEgg>> PHEASANT_EGG = r("pheasant_egg", () -> new ItemThrowableCustomEgg(ModEntities.PROJECTILE_PHEASANT_EGG::get, EntityPheasantEgg::new, EntityPheasantEgg::new));
-    public static final RegistrySupplier<ItemThrowableCustomEgg<EntityTurkeyEgg>> TURKEY_EGG = r("turkey_egg", () -> new ItemThrowableCustomEgg(ModEntities.PROJECTILE_TURKEY_EGG::get, EntityTurkeyEgg::new, EntityTurkeyEgg::new));
-    public static final RegistrySupplier<ItemThrowableCustomEgg<EntityGooseEgg>> GOOSE_EGG = r("goose_egg", () -> new ItemThrowableCustomEgg(ModEntities.PROJECTILE_GOOSE_EGG::get, EntityGooseEgg::new, EntityGooseEgg::new));
-    public static final RegistrySupplier<ItemThrowableCustomEgg<EntityGoldenGooseEgg>> GOLDEN_GOOSE_EGG = r("golden_goose_egg", () -> new ItemThrowableCustomEgg(ModEntities.PROJECTILE_GOLDEN_GOOSE_EGG::get, EntityGoldenGooseEgg::new, EntityGoldenGooseEgg::new) {
-        @Environment(EnvType.CLIENT)
-        @Override
-        public void appendHoverText(ItemStack stack, Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-            tooltip.add(new TextComponent("Golden! Maybe you can melt this down for resources?").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.BOLD));
-        }
-    });
+//    public static final RegistrySupplier<ItemThrowableCustomEgg<EntityPheasantEgg>> PHEASANT_EGG = r("pheasant_egg", () -> new ItemThrowableCustomEgg(ModEntities.PROJECTILE_PHEASANT_EGG::get, EntityPheasantEgg::new, EntityPheasantEgg::new));
+//    public static final RegistrySupplier<ItemThrowableCustomEgg<EntityTurkeyEgg>> TURKEY_EGG = r("turkey_egg", () -> new ItemThrowableCustomEgg(ModEntities.PROJECTILE_TURKEY_EGG::get, EntityTurkeyEgg::new, EntityTurkeyEgg::new));
+//    public static final RegistrySupplier<ItemThrowableCustomEgg<EntityGooseEgg>> GOOSE_EGG = r("goose_egg", () -> new ItemThrowableCustomEgg(ModEntities.PROJECTILE_GOOSE_EGG::get, EntityGooseEgg::new, EntityGooseEgg::new));
+//    public static final RegistrySupplier<ItemThrowableCustomEgg<EntityGoldenGooseEgg>> GOLDEN_GOOSE_EGG = r("golden_goose_egg", () -> new ItemThrowableCustomEgg(ModEntities.PROJECTILE_GOLDEN_GOOSE_EGG::get, EntityGoldenGooseEgg::new, EntityGoldenGooseEgg::new) /*{
+//        @Environment(EnvType.CLIENT)
+//        @Override
+//        public void appendHoverText(ItemStack stack, Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+//            tooltip.add(new TextComponent("Golden! Maybe you can melt this down for resources?").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.BOLD));
+//        }
+//    }*/);
 
     public static final RegistrySupplier<ItemBetterFood> TURKEY_LEG_RAW = r("turkey_leg_raw", () -> new ItemBetterFood(2, 0F, 16, true));
     public static final RegistrySupplier<ItemBetterFood> TURKEY_LEG_COOKED = r("turkey_leg_cooked", () -> new ItemBetterFood(4, 1.2F, 16, true));
@@ -106,7 +106,7 @@ public class ModItems {
 
     public static final RegistrySupplier<BlockItem> TURKEY_RAW = rIB(ModBlocks.TURKEY_RAW);
     public static final RegistrySupplier<BlockItem> TURKEY_COOKED = rIB(ModBlocks.TURKEY_COOKED);
-    public static final RegistrySupplier<BlockItem> TRILLIUM = rIB(ModBlocks.TRILLIUM);
+    //public static final RegistrySupplier<BlockItem> TRILLIUM = rIB(ModBlocks.TRILLIUM);
 
     protected static RegistrySupplier<Item> r(String name) {
         return ITEMS.register(name, () -> new Item(new Item.Properties().tab(BetterAnimalsPlusMod.TAB)));

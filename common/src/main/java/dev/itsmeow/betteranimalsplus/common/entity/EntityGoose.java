@@ -172,11 +172,11 @@ public class EntityGoose extends EntityAnimalWithTypes {
                 }
             }
         }
-        if(!this.level.isClientSide && !this.isBaby() && --this.timeUntilNextEgg <= 0) {
-            this.playSound(SoundEvents.CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-            this.spawnAtLocation(this.getRandom().nextInt(128) == 0 ? ModItems.GOLDEN_GOOSE_EGG.get() : ModItems.GOOSE_EGG.get(), 1);
-            this.timeUntilNextEgg = this.random.nextInt(6000) + 6000;
-        }
+//        if(!this.level.isClientSide && !this.isBaby() && --this.timeUntilNextEgg <= 0) {
+//            this.playSound(SoundEvents.CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+//            this.spawnAtLocation(this.getRandom().nextInt(128) == 0 ? ModItems.GOLDEN_GOOSE_EGG.get() : ModItems.GOOSE_EGG.get(), 1);
+//            this.timeUntilNextEgg = this.random.nextInt(6000) + 6000;
+//        }
     }
 
     @Override
