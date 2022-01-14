@@ -8,6 +8,7 @@ import dev.itsmeow.betteranimalsplus.client.model.block.head.*;
 import dev.itsmeow.betteranimalsplus.common.entity.*;
 //import dev.itsmeow.betteranimalsplus.common.entity.projectile.*;
 import dev.itsmeow.betteranimalsplus.common.entity.util.EntityTypeContainerBAPTameable;
+import dev.itsmeow.betteranimalsplus.common.entity.util.EntityUtil;
 import dev.itsmeow.betteranimalsplus.common.entity.util.abstracts.EntityBAPSquid;
 import dev.itsmeow.betteranimalsplus.common.entity.util.abstracts.EntityCrabLikeBase;
 import dev.itsmeow.betteranimalsplus.util.EntityRegistrarHandlerBAP;
@@ -26,7 +27,6 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.CreativeModeTab;
@@ -53,7 +53,7 @@ public class ModEntities {
             .add(Attributes.FLYING_SPEED, 1.0D)
             .add(Attributes.MOVEMENT_SPEED, 0.4D), b -> b
             .spawn(MobCategory.CREATURE, 7, 1, 2)
-            .placement(SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING, null)
+            .placement(SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING, EntityUtil::canSpawn)
             .egg(0xd8d8d8, 0xd82b11)
             .size(0.75F, 0.5F)
             .tameItems("minecraft:bone")
@@ -63,7 +63,7 @@ public class ModEntities {
             .spawn(MobCategory.MONSTER, 40, 1, 3)
             .egg(0x1e1e1e, 0x8c0c0c)
             .size(1.4F, 0.9F)
-            .defaultPlacement(Monster::checkMonsterSpawnRules)
+            .defaultPlacement(EntityUtil::canMonsterSpawn)
             .despawn()
             .biomesOverworld(BiomeTypes.SANDY, BiomeTypes.JUNGLE)
             .variants("desert_1", "desert_2", "desert_3", "jungle_1", "jungle_2", "jungle_3"));
@@ -71,7 +71,7 @@ public class ModEntities {
             .add(Attributes.MAX_HEALTH, 4.0D)
             .add(Attributes.MOVEMENT_SPEED, 0.25D), b -> b
             .spawn(MobCategory.CREATURE, 12, 1, 3)
-            .defaultPlacement(Mob::checkMobSpawnRules)
+            .defaultPlacement(EntityUtil::canMobSpawn)
             .egg(0x8e6b0b, 0xd8af3c)
             .size(1F, 1F)
             .biomesOverworld(BiomeTypes.FOREST, BiomeTypes.PLAINS, BiomeTypes.SAVANNA)
@@ -102,7 +102,7 @@ public class ModEntities {
             .add(Attributes.ATTACK_DAMAGE)
             .add(Attributes.ATTACK_DAMAGE, 2.5D), b -> b
             .spawn(MobCategory.CREATURE, 7, 1, 2)
-            .defaultPlacement(Mob::checkMobSpawnRules)
+            .defaultPlacement(EntityUtil::canMobSpawn)
             .egg(0x0c0c0c, 0xd3d3d3)
             .size(0.8F, 0.8F)
             .biomesOverworld(BiomeTypes.FOREST, BiomeTypes.PLAINS, BiomeTypes.SAVANNA)
@@ -248,7 +248,7 @@ public class ModEntities {
             .add(Attributes.ATTACK_SPEED)
             .add(Attributes.ATTACK_SPEED, 1D), b -> b
             .spawn(MobCategory.CREATURE, 7, 1, 1)
-            .defaultPlacement(Mob::checkMobSpawnRules)
+            .defaultPlacement(EntityUtil::canMobSpawn)
             .egg(0x4F2900, 0x8E500E)
             .size(2F, 2F)
             .biomesOverworld(BiomeTypes.FOREST)
@@ -262,7 +262,7 @@ public class ModEntities {
             .add(Attributes.ATTACK_SPEED)
             .add(Attributes.ATTACK_SPEED, 1D), b -> b
             .spawn(MobCategory.CREATURE, 6, 1, 1)
-            .defaultPlacement(Mob::checkMobSpawnRules)
+            .defaultPlacement(EntityUtil::canMobSpawn)
             .egg(0x000000, 0x333333)
             .size(2F, 1.5F)
             .biomesOverworld(BiomeTypes.FOREST)
@@ -272,7 +272,7 @@ public class ModEntities {
             .add(Attributes.MAX_HEALTH, 15.0D)
             .add(Attributes.MOVEMENT_SPEED, 0.45D), b -> b
             .spawn(MobCategory.CREATURE, 16, 1, 4)
-            .defaultPlacement(Mob::checkMobSpawnRules)
+            .defaultPlacement(EntityUtil::canMobSpawn)
             .egg(0x8e510b, 0xc6863b)
             .size(1.2F, 1.6F)
             .biomesOverworld(BiomeTypes.FOREST, BiomeTypes.MAGICAL)
@@ -284,7 +284,7 @@ public class ModEntities {
             .add(Attributes.ATTACK_DAMAGE)
             .add(Attributes.ATTACK_DAMAGE, 5.0D), b -> b
             .spawn(MobCategory.CREATURE, 7, 1, 6)
-            .defaultPlacement(Mob::checkMobSpawnRules)
+            .defaultPlacement(EntityUtil::canMobSpawn)
             .egg(0xbababa, 0x232323)
             .size(1.35F, 1.5F)
             .tameItems("minecraft:bone")
@@ -297,7 +297,7 @@ public class ModEntities {
             .add(Attributes.ATTACK_DAMAGE)
             .add(Attributes.ATTACK_DAMAGE, 5.0D), b -> b
             .spawn(MobCategory.CREATURE, 5, 1, 6)
-            .defaultPlacement(Mob::checkMobSpawnRules)
+            .defaultPlacement(EntityUtil::canMobSpawn)
             .egg(0x866a31, 0xb69762)
             .size(0.8F, 0.9F)
             .tameItems("minecraft:rabbit", "minecraft:chicken", "betteranimalsplus:pheasantraw", "minecraft:cooked_rabbit", "minecraft:cooked_chicken", "betteranimalsplus:pheasantcooked")
@@ -318,7 +318,7 @@ public class ModEntities {
             .add(Attributes.MAX_HEALTH, 53.0D)
             .add(Attributes.MOVEMENT_SPEED, 0.225D), b -> b
             .spawn(MobCategory.CREATURE, 10, 1, 4)
-            .defaultPlacement(Mob::checkMobSpawnRules)
+            .defaultPlacement(EntityUtil::canMobSpawn)
             .egg(0x8e510b, 0x017700).size(1.3964844F, 1.8F)
             .biomes(d -> d.withTypes(BiomeTypes.SNOWY).withoutTypes(BiomeTypes.OCEAN).onlyOverworld())
             .variants(
@@ -338,7 +338,7 @@ public class ModEntities {
             .add(Attributes.ATTACK_DAMAGE)
             .add(Attributes.ATTACK_DAMAGE, 3.5D), b -> b
             .spawn(MobCategory.CREATURE, 9, 1, 4)
-            .defaultPlacement(Mob::checkMobSpawnRules)
+            .defaultPlacement(EntityUtil::canMobSpawn)
             .egg(0x3d3c3b, 0xbca895).size(0.9F, 0.9F)
             .biomesOverworld(BiomeTypes.FOREST, BiomeTypes.JUNGLE, BiomeTypes.PLAINS, BiomeTypes.SAVANNA)
             .variants("gray", "light_brown", "dark_brown")
@@ -381,7 +381,7 @@ public class ModEntities {
             .add(Attributes.ATTACK_DAMAGE, 4.5D)
             .add(Attributes.KNOCKBACK_RESISTANCE, 0.7D), b -> b
             .spawn(MobCategory.CREATURE, 8, 1, 1)
-            .defaultPlacement(Mob::checkMobSpawnRules)
+            .defaultPlacement(EntityUtil::canMobSpawn)
             .egg(0x46351c, 0x97866e)
             .size(2.25F, 3F)
             .biomes(c -> c
@@ -422,7 +422,7 @@ public class ModEntities {
     public static final EntityTypeContainerContainable<EntityButterfly, ItemModEntityContainer<EntityButterfly>> BUTTERFLY = H.addContainable(EntityButterfly.class, EntityButterfly::new, "butterfly", () -> Mob.createMobAttributes()
             .add(Attributes.MAX_HEALTH, 2.0D), b -> b
             .spawn(MobCategory.AMBIENT, 10, 1, 3)
-            .defaultPlacement((t, w, r, p, rng) -> p.getY() > w.getSeaLevel())
+            .defaultPlacement((t, w, r, p, rng) -> w.dimensionType().bedWorks() && p.getY() > w.getSeaLevel())
             .egg(0x161d27, 0xb42d10)
             .size(0.35F, 0.35F)
             .despawn()
@@ -439,7 +439,7 @@ public class ModEntities {
     public static final EntityTypeContainerContainable<EntityDragonfly, ItemModEntityContainer<EntityDragonfly>> DRAGONFLY = H.addContainable(EntityDragonfly.class, EntityDragonfly::new, "dragonfly", () -> Mob.createMobAttributes()
             .add(Attributes.MAX_HEALTH, 2.0D), b -> b
             .spawn(MobCategory.AMBIENT, 10, 1, 3)
-            .defaultPlacement((t, w, r, p, rng) -> p.getY() > w.getSeaLevel())
+            .defaultPlacement((t, w, r, p, rng) -> w.dimensionType().bedWorks() && p.getY() > w.getSeaLevel())
             .egg(0x40a605, 0x522601)
             .size(0.35F, 0.35F)
             .despawn()

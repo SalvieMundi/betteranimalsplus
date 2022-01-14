@@ -35,6 +35,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biome.BiomeCategory;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
@@ -83,8 +84,9 @@ public class EntitySongbird extends EntityAnimalWithSelectiveTypes implements Fl
         if(world instanceof Level && !((Level) world).isLoaded(new BlockPos(blockpos))) {
             BlockState state = this.level.getBlockState(blockpos.below());
             Block block = state.getBlock();
-            return block instanceof LeavesBlock || block == Blocks.GRASS || state.is(BlockTags.LOGS)
-                    || block == Blocks.AIR && this.level.getMaxLocalRawBrightness(blockpos) > 8 && super.checkSpawnRules(world, reason);
+            return world.dimensionType().bedWorks() && 
+            		(block instanceof LeavesBlock || block == Blocks.GRASS || state.is(BlockTags.LOGS)
+                    || block == Blocks.AIR) && this.level.getMaxLocalRawBrightness(blockpos) > 8 && super.checkSpawnRules(world, reason);
         } else {
             return super.checkSpawnRules(world, reason);
         }

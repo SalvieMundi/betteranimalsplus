@@ -14,6 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.biome.Biome.BiomeCategory;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
 
@@ -108,6 +109,6 @@ public abstract class EntityBAPSquid extends EntityBAPCephalopod {
     }
 
     public static <T extends EntityBAPSquid> boolean placement(EntityType<T> type, LevelAccessor world, MobSpawnType reason, BlockPos pos, Random rng) {
-        return pos.getY() < (world.getSeaLevel() - 31) && world.getBlockState(pos).getBlock() == Blocks.WATER && world.getEntitiesOfClass(EntityBAPSquid.class, new AABB(pos).inflate(100D)).size() == 0;
+        return world.dimensionType().bedWorks() && pos.getY() < (world.getSeaLevel() - 31) && world.getBlockState(pos).getBlock() == Blocks.WATER && world.getEntitiesOfClass(EntityBAPSquid.class, new AABB(pos).inflate(100D)).size() == 0;
     }
 }

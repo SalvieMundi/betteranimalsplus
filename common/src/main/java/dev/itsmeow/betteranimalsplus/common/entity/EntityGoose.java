@@ -4,7 +4,6 @@ import dev.itsmeow.betteranimalsplus.common.entity.ai.WaterfowlNavigator;
 import dev.itsmeow.betteranimalsplus.common.entity.util.EntityUtil;
 import dev.itsmeow.betteranimalsplus.common.entity.util.abstracts.EntityAnimalWithTypes;
 import dev.itsmeow.betteranimalsplus.init.ModEntities;
-import dev.itsmeow.betteranimalsplus.init.ModItems;
 import dev.itsmeow.betteranimalsplus.init.ModSoundEvents;
 import dev.itsmeow.imdlib.entity.EntityTypeContainer;
 import dev.itsmeow.imdlib.entity.util.variant.IVariant;
@@ -361,7 +360,7 @@ public class EntityGoose extends EntityAnimalWithTypes {
 
     public static boolean canGooseSpawn(EntityType<EntityGoose> type, LevelAccessor world, MobSpawnType reason, BlockPos pos, Random rand) {
         Block downBlock = world.getBlockState(pos.below()).getBlock();
-        return ((downBlock == Blocks.GRASS_BLOCK && nearWater(world, pos)) || downBlock == Blocks.WATER) && world.getRawBrightness(pos, 0) > 8 && world.isEmptyBlock(pos);
+        return world.dimensionType().bedWorks() && ((downBlock == Blocks.GRASS_BLOCK && nearWater(world, pos)) || downBlock == Blocks.WATER) && world.getRawBrightness(pos, 0) > 8 && world.isEmptyBlock(pos);
     }
 
     protected static boolean nearWater(LevelAccessor world, BlockPos pos) {

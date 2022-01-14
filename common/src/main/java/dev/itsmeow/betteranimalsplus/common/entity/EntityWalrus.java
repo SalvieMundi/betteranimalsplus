@@ -41,6 +41,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.biome.Biome.BiomeCategory;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -186,7 +187,7 @@ public class EntityWalrus extends Animal implements IContainerEntity<EntityWalru
 
     @SuppressWarnings("deprecation")
     public static boolean canSpawn(EntityType<EntityWalrus> walrus, LevelAccessor world, MobSpawnType reason, BlockPos pos, Random rand) {
-        return pos.getY() < world.getSeaLevel() + 4 && world.getRawBrightness(pos, 0) > 8;
+        return world.dimensionType().bedWorks() && pos.getY() < world.getSeaLevel() + 4 && world.getRawBrightness(pos, 0) > 8;
     }
 
     @Override

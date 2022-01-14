@@ -27,6 +27,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biome.BiomeCategory;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -178,6 +179,6 @@ public class EntitySquirrel extends EntityAnimalWithSelectiveTypes {
 
     public static boolean canSquirrelSpawn(EntityType<EntitySquirrel> type, ServerLevelAccessor world, MobSpawnType reason, BlockPos pos, Random rand) {
         BlockState below = world.getBlockState(pos.below());
-        return Mob.checkMobSpawnRules(type, world, reason, pos, rand) || below.is(BlockTags.LEAVES) || below.is(BlockTags.LOGS);
+        return world.dimensionType().bedWorks() && (Mob.checkMobSpawnRules(type, world, reason, pos, rand) || below.is(BlockTags.LEAVES) || below.is(BlockTags.LOGS));
     }
 }

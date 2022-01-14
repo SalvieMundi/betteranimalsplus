@@ -478,6 +478,8 @@ public class EntityButterfly extends EntityAnimalWithTypesAndSizeContainable {
         set.addAll(BiomeTypes.getBiomes(BiomeTypes.JUNGLE));
         set.addAll(BiomeTypes.getBiomes(BiomeTypes.MAGICAL));
         set.removeIf(b -> BiomeTypes.COLD.hasType(b) || !BiomeTypes.OVERWORLD.hasType(b));
+        set.removeAll(BiomeTypes.getBiomes(BiomeTypes.END));
+        set.removeAll(BiomeTypes.getBiomes(BiomeTypes.NETHER));
         return set.toArray(new ResourceKey[0]);
     }
 }
